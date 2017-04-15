@@ -36,7 +36,7 @@ public class SlotMachine : MonoBehaviour {
     public Text WinningsText;
     public Text MessageText;
     public Text JackPotText;
-    //image game object 
+    //image game objects 
     public Image Panel;
     public Image PanelJackPot;
     public Image ReelOne;
@@ -271,7 +271,7 @@ public class SlotMachine : MonoBehaviour {
             {
                 ReelThree.sprite = Resources.Load<Sprite>("awp");
             }
-            else if(checkRange(outCome[2], 65, 65))
+            else if (checkRange(outCome[2], 65, 65))
             {
                 ReelThree.sprite = Resources.Load<Sprite>("knife");
             }
