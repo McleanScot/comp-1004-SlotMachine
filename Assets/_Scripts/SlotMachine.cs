@@ -43,6 +43,7 @@ public class SlotMachine : MonoBehaviour {
     public Image ReelOne;
     public Image ReelTwo;
     public Image ReelThree;
+    public Image SpinButton;
 
     public Sprite Blanks;
     public Sprite Grapes;
@@ -153,63 +154,146 @@ public class SlotMachine : MonoBehaviour {
 			if (checkRange(outCome[spin], 1, 27)) {  // 41.5% probability
 				betLine[spin] = "blank";
 				blanks++;
-                ReelOne.sprite = Resources.Load<Sprite>("blank");
-                ReelTwo.sprite = Resources.Load<Sprite>("blank");
-                ReelThree.sprite = Resources.Load<Sprite>("blank");
             }
 			else if (checkRange(outCome[spin], 28, 37)){ // 15.4% probability
 				betLine[spin] = "Grapes";
 				grapes++;
-                ReelOne.sprite = Resources.Load<Sprite>("grape");
-                ReelTwo.sprite = Resources.Load<Sprite>("grape");
-                ReelThree.sprite = Resources.Load<Sprite>("grape");
             }
 			else if (checkRange(outCome[spin], 38, 46)){ // 13.8% probability
 				betLine[spin] = "Banana";
 				bananas++;
-                ReelOne.sprite = Resources.Load<Sprite>("banana");
-                ReelTwo.sprite = Resources.Load<Sprite>("banana");
-                ReelThree.sprite = Resources.Load<Sprite>("banana");
             }
 			else if (checkRange(outCome[spin], 47, 54)){ // 12.3% probability
 				betLine[spin] = "Orange";
 				oranges++;
-                ReelOne.sprite = Resources.Load<Sprite>("orange");
-                ReelTwo.sprite = Resources.Load<Sprite>("orange");
-                ReelThree.sprite = Resources.Load<Sprite>("orange");
             }
 			else if (checkRange(outCome[spin], 55, 59)){ //  7.7% probability
 				betLine[spin] = "Cherry";
 				cherries++;
-                ReelOne.sprite = Resources.Load<Sprite>("cherry");
-                ReelTwo.sprite = Resources.Load<Sprite>("cherry");
-                ReelThree.sprite = Resources.Load<Sprite>("cherry");
             }
 			else if (checkRange(outCome[spin], 60, 62)){ //  4.6% probability
 				betLine[spin] = "Bar";
 				bars++;
-                ReelOne.sprite = Resources.Load<Sprite>("bar");
-                ReelTwo.sprite = Resources.Load<Sprite>("bar");
-                ReelThree.sprite = Resources.Load<Sprite>("bar");
             }
 			else if (checkRange(outCome[spin], 63, 64)){ //  3.1% probability
 				betLine[spin] = "Bell";
 				bells++;
-                ReelOne.sprite = Resources.Load<Sprite>("bell");
-                ReelTwo.sprite = Resources.Load<Sprite>("bell");
-                ReelThree.sprite = Resources.Load<Sprite>("bell");
             }
 			else if (checkRange(outCome[spin], 65, 65)){ //  1.5% probability
 				betLine[spin] = "Seven";
 				sevens++;
+            }
+
+            if(checkRange(outCome[0], 1, 27))
+            {
+                ReelOne.sprite = Resources.Load<Sprite>("blank");
+            }
+            else if (checkRange(outCome[0], 28, 37))
+            {
+                ReelOne.sprite = Resources.Load<Sprite>("grapes");
+            }
+
+            else if (checkRange(outCome[0], 38, 46))
+            {
+                ReelOne.sprite = Resources.Load<Sprite>("banana");
+            }
+
+            else if (checkRange(outCome[0], 47, 54))
+            {
+                ReelOne.sprite = Resources.Load<Sprite>("orange");
+            }
+            else if (checkRange(outCome[0], 55, 59))
+            {
+                ReelOne.sprite = Resources.Load<Sprite>("cherry");
+            }
+            else if (checkRange(outCome[0], 60, 62))
+            {
+                ReelOne.sprite = Resources.Load<Sprite>("bar");
+            }
+            else if (checkRange(outCome[0], 63, 64))
+            {
+                ReelOne.sprite = Resources.Load<Sprite>("bell");
+            }
+            else if (checkRange(outCome[0], 65, 65))
+            {
                 ReelOne.sprite = Resources.Load<Sprite>("seven");
+            }
+
+            if (checkRange(outCome[1], 1, 27))
+            {
+                ReelTwo.sprite = Resources.Load<Sprite>("blank");
+            }
+            else if (checkRange(outCome[1], 28, 37))
+            {
+                ReelTwo.sprite = Resources.Load<Sprite>("grapes");
+            }
+            else if (checkRange(outCome[1], 38, 46))
+            {
+                ReelTwo.sprite = Resources.Load<Sprite>("banana");
+            }
+
+            else if (checkRange(outCome[1], 47, 54))
+            {
+                ReelTwo.sprite = Resources.Load<Sprite>("orange");
+            }
+            else if (checkRange(outCome[1], 55, 59))
+            {
+                ReelTwo.sprite = Resources.Load<Sprite>("cherry");
+            }
+            else if (checkRange(outCome[1], 60, 62))
+            {
+                ReelTwo.sprite = Resources.Load<Sprite>("bar");
+            }
+            else if (checkRange(outCome[1], 63, 64))
+            {
+                ReelTwo.sprite = Resources.Load<Sprite>("bell");
+            }
+            else if(checkRange(outCome[1], 65, 65))
+            {
                 ReelTwo.sprite = Resources.Load<Sprite>("seven");
+            }
+
+            if (checkRange(outCome[2], 1, 27))
+            {
+                ReelThree.sprite = Resources.Load<Sprite>("blank");
+            }
+            else if (checkRange(outCome[2], 28, 37))
+            {
+                ReelThree.sprite = Resources.Load<Sprite>("grapes");
+            }
+            else if (checkRange(outCome[2], 38, 46))
+            {
+                ReelThree.sprite = Resources.Load<Sprite>("banana");
+            }
+
+            else if (checkRange(outCome[2], 47, 54))
+            {
+                ReelThree.sprite = Resources.Load<Sprite>("orange");
+            }
+            else if (checkRange(outCome[2], 55, 59))
+            {
+                ReelThree.sprite = Resources.Load<Sprite>("cherry");
+            }
+            else if (checkRange(outCome[2], 60, 62))
+            {
+                ReelThree.sprite = Resources.Load<Sprite>("bar");
+            }
+            else if (checkRange(outCome[2], 63, 64))
+            {
+                ReelThree.sprite = Resources.Load<Sprite>("bell");
+            }
+            else if(checkRange(outCome[2], 65, 65))
+            {
                 ReelThree.sprite = Resources.Load<Sprite>("seven");
             }
-            
-		}
+        }
 		return betLine;
 	}
+
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
 
 	/* This function calculates the player's winnings, if any */
 	private void determineWinnings()
@@ -347,6 +431,7 @@ public class SlotMachine : MonoBehaviour {
 		{
             Panel.gameObject.SetActive(true);
             MessageText.text = "You have run out of credits! Please reset or quit the game.";
+
         }
 		else if (playerBet > playerMoney)
 		{
@@ -354,6 +439,7 @@ public class SlotMachine : MonoBehaviour {
             MessageText.text = "You don't have enough Money to place that bet.";
             Panel.gameObject.SetActive(true);
             playerBet = 10;
+            SpinButton.sprite = Resources.Load<Sprite>("spin_pressed");
 
         }
 
@@ -372,6 +458,7 @@ public class SlotMachine : MonoBehaviour {
             playerBet = 10;
             MessageText.text = "";
             Panel.gameObject.SetActive(false);
+            SpinButton.sprite = Resources.Load<Sprite>("spin");
         }
 		else
 		{
@@ -387,7 +474,6 @@ public class SlotMachine : MonoBehaviour {
             JackPotText.text = "";
             PanelJackPot.gameObject.SetActive(false);
         }
-
     }
 
 
