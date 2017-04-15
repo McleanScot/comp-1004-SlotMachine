@@ -6,12 +6,11 @@ public class SlotMachine : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        //setting panels to not be visible when game starts 
         Panel.gameObject.SetActive(false);
         PanelJackPot.gameObject.SetActive(false);
-
-        
     }
-	
+	//variables
 	private int playerMoney = 1000;
 	private int winnings = 0;
 	private int jackpot = 5000;
@@ -20,41 +19,30 @@ public class SlotMachine : MonoBehaviour {
 	private float winNumber = 0.0f;
 	private float lossNumber = 0.0f;
 	private string[] spinResult;
-	private string fruits = "";
+	private string weapons = "";
 	private float winRatio = 0.0f;
 	private float lossRatio = 0.0f;
-	private int grapes = 0;
-	private int bananas = 0;
-	private int oranges = 0;
-	private int cherries = 0;
-	private int bars = 0;
-	private int bells = 0;
-	private int sevens = 0;
-	private int blanks = 0;
-
+	private int usps = 0;
+	private int tech9s = 0;
+	private int deagles = 0;
+	private int m4a4s = 0;
+	private int ak47s = 0;
+	private int awps = 0;
+	private int knives = 0;
+	private int chickens = 0;
+    //text game objects
     public Text CreditText;
     public Text BetText;
     public Text WinningsText;
     public Text MessageText;
     public Text JackPotText;
-
+    //image game object 
     public Image Panel;
     public Image PanelJackPot;
     public Image ReelOne;
     public Image ReelTwo;
     public Image ReelThree;
     public Image SpinButton;
-
-    public Sprite Blanks;
-    public Sprite Grapes;
-    public Sprite Bananas;
-    public Sprite Oranges;
-    public Sprite Cherries;
-    public Sprite Bars;
-    public Sprite Bells;
-    public Sprite Sevens;
-
-
 
     /* Utility function to show Player Stats */
     private void showPlayerStats()
@@ -75,19 +63,21 @@ public class SlotMachine : MonoBehaviour {
 	/* Utility function to reset all fruit tallies*/
 	private void resetFruitTally()
 	{
-		grapes = 0;
-		bananas = 0;
-		oranges = 0;
-		cherries = 0;
-		bars = 0;
-		bells = 0;
-		sevens = 0;
-		blanks = 0;
+        //changes fruits to weapons to fit the csgo theme i was going with
+        usps = 0;
+        tech9s = 0;
+		deagles = 0;
+        m4a4s = 0;
+        ak47s = 0;
+        awps = 0;
+        knives = 0;
+        chickens = 0;
 	}
 
 	/* Utility function to reset the player stats */
 	private void resetAll()
 	{
+        // setting the winnings text to 0
 		playerMoney = 1000;
 		winnings = 0;
 		jackpot = 5000;
@@ -152,144 +142,143 @@ public class SlotMachine : MonoBehaviour {
 			outCome[spin] = Random.Range(1,65);
 
 			if (checkRange(outCome[spin], 1, 27)) {  // 41.5% probability
-				betLine[spin] = "blank";
-				blanks++;
+				betLine[spin] = "Chicken";
+                chickens++;
             }
 			else if (checkRange(outCome[spin], 28, 37)){ // 15.4% probability
-				betLine[spin] = "Grapes";
-				grapes++;
+				betLine[spin] = "Usp";
+                usps++;
             }
 			else if (checkRange(outCome[spin], 38, 46)){ // 13.8% probability
-				betLine[spin] = "Banana";
-				bananas++;
+				betLine[spin] = "Tech 9";
+                tech9s++;
             }
 			else if (checkRange(outCome[spin], 47, 54)){ // 12.3% probability
-				betLine[spin] = "Orange";
-				oranges++;
+				betLine[spin] = "Deagle";
+                deagles++;
             }
 			else if (checkRange(outCome[spin], 55, 59)){ //  7.7% probability
-				betLine[spin] = "Cherry";
-				cherries++;
+				betLine[spin] = "M4A$";
+                m4a4s++;
             }
 			else if (checkRange(outCome[spin], 60, 62)){ //  4.6% probability
-				betLine[spin] = "Bar";
-				bars++;
+				betLine[spin] = "AK-47";
+                ak47s++;
             }
 			else if (checkRange(outCome[spin], 63, 64)){ //  3.1% probability
-				betLine[spin] = "Bell";
-				bells++;
+				betLine[spin] = "AWP";
+                awps++;
             }
 			else if (checkRange(outCome[spin], 65, 65)){ //  1.5% probability
-				betLine[spin] = "Seven";
-				sevens++;
+				betLine[spin] = "Knife";
+                knives++;
             }
-
+            //setting the sprite of reelone based off the roll range that was RNG'd
             if(checkRange(outCome[0], 1, 27))
             {
-                ReelOne.sprite = Resources.Load<Sprite>("blank");
+                ReelOne.sprite = Resources.Load<Sprite>("chicken");
             }
             else if (checkRange(outCome[0], 28, 37))
             {
-                ReelOne.sprite = Resources.Load<Sprite>("grapes");
+                ReelOne.sprite = Resources.Load<Sprite>("usp");
             }
 
             else if (checkRange(outCome[0], 38, 46))
             {
-                ReelOne.sprite = Resources.Load<Sprite>("banana");
+                ReelOne.sprite = Resources.Load<Sprite>("Tec9");
             }
 
             else if (checkRange(outCome[0], 47, 54))
             {
-                ReelOne.sprite = Resources.Load<Sprite>("orange");
+                ReelOne.sprite = Resources.Load<Sprite>("deagle");
             }
             else if (checkRange(outCome[0], 55, 59))
             {
-                ReelOne.sprite = Resources.Load<Sprite>("cherry");
+                ReelOne.sprite = Resources.Load<Sprite>("m4a4");
             }
             else if (checkRange(outCome[0], 60, 62))
             {
-                ReelOne.sprite = Resources.Load<Sprite>("bar");
+                ReelOne.sprite = Resources.Load<Sprite>("Ak47");
             }
             else if (checkRange(outCome[0], 63, 64))
             {
-                ReelOne.sprite = Resources.Load<Sprite>("bell");
+                ReelOne.sprite = Resources.Load<Sprite>("awp");
             }
             else if (checkRange(outCome[0], 65, 65))
             {
-                ReelOne.sprite = Resources.Load<Sprite>("seven");
+                ReelOne.sprite = Resources.Load<Sprite>("knife");
             }
-
+            //setting the sprite of reeltwo based off the roll range that was RNG'd
             if (checkRange(outCome[1], 1, 27))
             {
-                ReelTwo.sprite = Resources.Load<Sprite>("blank");
+                ReelTwo.sprite = Resources.Load<Sprite>("chicken");
             }
             else if (checkRange(outCome[1], 28, 37))
             {
-                ReelTwo.sprite = Resources.Load<Sprite>("grapes");
+                ReelTwo.sprite = Resources.Load<Sprite>("usp");
             }
             else if (checkRange(outCome[1], 38, 46))
             {
-                ReelTwo.sprite = Resources.Load<Sprite>("banana");
+                ReelTwo.sprite = Resources.Load<Sprite>("Tec9");
             }
 
             else if (checkRange(outCome[1], 47, 54))
             {
-                ReelTwo.sprite = Resources.Load<Sprite>("orange");
+                ReelTwo.sprite = Resources.Load<Sprite>("deagle");
             }
             else if (checkRange(outCome[1], 55, 59))
             {
-                ReelTwo.sprite = Resources.Load<Sprite>("cherry");
+                ReelTwo.sprite = Resources.Load<Sprite>("m4a4");
             }
             else if (checkRange(outCome[1], 60, 62))
             {
-                ReelTwo.sprite = Resources.Load<Sprite>("bar");
+                ReelTwo.sprite = Resources.Load<Sprite>("Ak47");
             }
             else if (checkRange(outCome[1], 63, 64))
             {
-                ReelTwo.sprite = Resources.Load<Sprite>("bell");
+                ReelTwo.sprite = Resources.Load<Sprite>("awp");
             }
             else if(checkRange(outCome[1], 65, 65))
             {
-                ReelTwo.sprite = Resources.Load<Sprite>("seven");
+                ReelTwo.sprite = Resources.Load<Sprite>("knife");
             }
-
+            //setting the sprite of reelThree based off the roll range that was RNG'd
             if (checkRange(outCome[2], 1, 27))
             {
-                ReelThree.sprite = Resources.Load<Sprite>("blank");
+                ReelThree.sprite = Resources.Load<Sprite>("chicken");
             }
             else if (checkRange(outCome[2], 28, 37))
             {
-                ReelThree.sprite = Resources.Load<Sprite>("grapes");
+                ReelThree.sprite = Resources.Load<Sprite>("usp");
             }
             else if (checkRange(outCome[2], 38, 46))
             {
-                ReelThree.sprite = Resources.Load<Sprite>("banana");
+                ReelThree.sprite = Resources.Load<Sprite>("Tec9");
             }
-
             else if (checkRange(outCome[2], 47, 54))
             {
-                ReelThree.sprite = Resources.Load<Sprite>("orange");
+                ReelThree.sprite = Resources.Load<Sprite>("deagle");
             }
             else if (checkRange(outCome[2], 55, 59))
             {
-                ReelThree.sprite = Resources.Load<Sprite>("cherry");
+                ReelThree.sprite = Resources.Load<Sprite>("m4a4");
             }
             else if (checkRange(outCome[2], 60, 62))
             {
-                ReelThree.sprite = Resources.Load<Sprite>("bar");
+                ReelThree.sprite = Resources.Load<Sprite>("Ak47");
             }
             else if (checkRange(outCome[2], 63, 64))
             {
-                ReelThree.sprite = Resources.Load<Sprite>("bell");
+                ReelThree.sprite = Resources.Load<Sprite>("awp");
             }
             else if(checkRange(outCome[2], 65, 65))
             {
-                ReelThree.sprite = Resources.Load<Sprite>("seven");
+                ReelThree.sprite = Resources.Load<Sprite>("knife");
             }
         }
 		return betLine;
 	}
-
+    //method to close the game 
     public void CloseGame()
     {
         Application.Quit();
@@ -298,65 +287,65 @@ public class SlotMachine : MonoBehaviour {
 	/* This function calculates the player's winnings, if any */
 	private void determineWinnings()
 	{
-		if (blanks == 0)
+		if (chickens == 0)
 		{
-			if (grapes == 3)
+			if (usps == 3)
 			{
 				winnings = playerBet * 10;
 			}
-			else if (bananas == 3)
+			else if (tech9s == 3)
 			{
 				winnings = playerBet * 20;
 			}
-			else if (oranges == 3)
+			else if (deagles == 3)
 			{
 				winnings = playerBet * 30;
 			}
-			else if (cherries == 3)
+			else if (m4a4s == 3)
 			{
 				winnings = playerBet * 40;
 			}
-			else if (bars == 3)
+			else if (ak47s == 3)
 			{
 				winnings = playerBet * 50;
 			}
-			else if (bells == 3)
+			else if (awps == 3)
 			{
 				winnings = playerBet * 75;
 			}
-			else if (sevens == 3)
+			else if (knives == 3)
 			{
 				winnings = playerBet * 100;
 			}
-			else if (grapes == 2)
+			else if (usps == 2)
 			{
 				winnings = playerBet * 2;
 			}
-			else if (bananas == 2)
+			else if (tech9s == 2)
 			{
 				winnings = playerBet * 2;
 			}
-			else if (oranges == 2)
+			else if (deagles == 2)
 			{
 				winnings = playerBet * 3;
 			}
-			else if (cherries == 2)
+			else if (m4a4s == 2)
 			{
 				winnings = playerBet * 4;
 			}
-			else if (bars == 2)
+			else if (ak47s == 2)
 			{
 				winnings = playerBet * 5;
 			}
-			else if (bells == 2)
+			else if (awps == 2)
 			{
 				winnings = playerBet * 10;
 			}
-			else if (sevens == 2)
+			else if (knives == 2)
 			{
 				winnings = playerBet * 20;
 			}
-			else if (sevens == 1)
+			else if (knives == 1)
 			{
 				winnings = playerBet * 5;
 			}
@@ -371,10 +360,12 @@ public class SlotMachine : MonoBehaviour {
 		{
 			lossNumber++;
 			showLossMessage();
+            //settings winnins to 0 to reset the bet text box 
             winnings = 0;
         }
 
 	}
+    //buttons to add the selected bet amount depending on what button was clicked 
     public void OnBetOneClick()
     {
         BetText.text = (playerBet = playerBet + 1).ToString(); ;
@@ -420,6 +411,7 @@ public class SlotMachine : MonoBehaviour {
         resetAll();
         BetText.text = playerBet.ToString();
         CreditText.text = playerMoney.ToString();
+        //hiding he panel and message when we reset 
         Panel.gameObject.SetActive(false);
         MessageText.text = "";
     }
@@ -429,16 +421,20 @@ public class SlotMachine : MonoBehaviour {
 
 		if (playerMoney == 0)
 		{
+            //sending a panel and message telling the player they are out of money
             Panel.gameObject.SetActive(true);
             MessageText.text = "You have run out of credits! Please reset or quit the game.";
 
         }
 		else if (playerBet > playerMoney)
 		{
+            //sending the player a message that their bet is too much 
 			Debug.Log("You don't have enough Money to place that bet.");
             MessageText.text = "You don't have enough Money to place that bet.";
             Panel.gameObject.SetActive(true);
+            //if the bet is too big reset the bet to 10
             playerBet = 10;
+            //change button to disabled button if they cant spin
             SpinButton.sprite = Resources.Load<Sprite>("spin_pressed");
 
         }
@@ -450,11 +446,12 @@ public class SlotMachine : MonoBehaviour {
 		else if (playerBet <= playerMoney)
 		{
 			spinResult = Reels();
-			fruits = spinResult[0] + " - " + spinResult[1] + " - " + spinResult[2];
-			Debug.Log(fruits);
+			weapons = spinResult[0] + " - " + spinResult[1] + " - " + spinResult[2];
+			Debug.Log(weapons);
 			determineWinnings();
 			turn++;
 			showPlayerStats();
+            //setting the bet back to 10 hiding the panel and message and putting the button back to its original sprite
             playerBet = 10;
             MessageText.text = "";
             Panel.gameObject.SetActive(false);
@@ -464,13 +461,14 @@ public class SlotMachine : MonoBehaviour {
 		{
 			Debug.Log("Please enter a valid bet amount");
 		}
-
+        //setting the various text fields to their corresponding values.
         BetText.text = playerBet.ToString();
         CreditText.text = playerMoney.ToString();
         WinningsText.text = winnings.ToString();
 
         if(winnings != 5000)
         {
+            //if we dont win the jackpot hide the jackpot message.
             JackPotText.text = "";
             PanelJackPot.gameObject.SetActive(false);
         }
